@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>line</title>
+
+    <script lang="javascript">
+        function enviar() {
+            opSexo = "";
+            nome = document.getElementById("txtNome").value;
+            idade = document.getElementById("txtIdade").value;
+            idade = parseInt(idade);
+            sexo = document.getElementsByName("sexo");
+            if (sexo[0].checked) {
+                opSexo = "mulher";
+            }
+            else {
+                opSexo = "homem";
+            };
+
+
+            pais = document.getElementById("selPais").value;
+            dv = document.getElementById("dvResultado");
+            opIdade = 0;
+            if (idade > 18) { opIdade = "maior"; } else { opIdade = "menor" };
+
+            dv.innerHTML = "<h1>Relatorio</h1><br>" +
+                "nome: <b>" + nome + "</b> <br>" +
+                "sexo: " + opSexo + " <br>" +
+                "idade:" + idade + "(" + opIdade + ") <br>" +
+                "pais: <i>" + pais + "</i> <br>"
+
+
+        }
+
+    </script>
+</head>
+
+<body>
+    Nome:<input id="txtNome" type="text" value="Nome" onfocus="this.value=''" />
+    <br>
+    Idade:<input id="txtIdade" type="text" value="idade" onfocus="this.value='';" />
+    <br>
+    Sexo:
+    <br>
+    Mulher <input id="rdM" name="sexo" type="radio" />
+    <br>
+    Homem <input id="rdF" name="sexo" type="radio" />
+    <br>
+    País: <select id="selPais">
+        <option value="Brasil">Brasil</option>
+        <option value="França">França</option>
+        <option value="Canada">Canada</option>
+        <option value="Belgica">Belgica</option>
+
+    </select>
+    <input type="button" value=" enviar" onclick="enviar();" />
+
+
+
+    <div id="dvResultado">
+
+    </div>
+
+</body>
+
+</html>
